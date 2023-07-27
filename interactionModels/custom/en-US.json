@@ -1,0 +1,540 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "day",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.262050529049.586611985183.450613564301",
+                  "value": "1"
+                },
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.262050529049.586611985183.1332136261127",
+                  "value": "31"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1277741201486.1595225682343"
+              }
+            },
+            {
+              "name": "month",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.262050529049.1027837100192.467994524013"
+                }
+              ],
+              "type": "TipoMes",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.993892280390.1122548925413"
+              }
+            },
+            {
+              "name": "year",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.262050529049.314293785308.1430149976043",
+                  "value": "2023"
+                },
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.262050529049.314293785308.1554160081224",
+                  "value": "2023"
+                }
+              ],
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.900117369832.308617094023"
+              }
+            }
+          ],
+          "name": "RegisterCitasFechaIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "day",
+              "elicitationRequired": false,
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "name": "ConsultarCitaDiaIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "Confirmacion",
+              "elicitationRequired": false,
+              "type": "TipoConfirmacion",
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "name": "ConfirmarEliminacionIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "HelloWorldIntent",
+          "samples": [
+            "hello",
+            "how are you",
+            "say hello world",
+            "say hello",
+            "Hello World"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "the day {day}",
+                "{day}",
+                "the {day}"
+              ]
+            },
+            {
+              "name": "month",
+              "type": "TipoMes",
+              "samples": [
+                "{month}",
+                "in {month}"
+              ]
+            },
+            {
+              "name": "year",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER"
+            }
+          ],
+          "name": "RegisterCitasFechaIntent",
+          "samples": [
+            "the {day} del {month}",
+            "in the year {year}",
+            "in {year}",
+            "the date  {day} of {month} of {year}",
+            "the {day} of {month} of {year}",
+            "{day} of {month} of {year}",
+            "{month} {day}",
+            "{day} of {month}",
+            "the {day} of {month}",
+            "the {day}",
+            "in  {month}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "TimeDayCitasIntent",
+          "samples": [
+            "when I attend the date",
+            "How much left",
+            "How much is left to meet the date",
+            "how much is left for the date",
+            "tell me how much is left for the date",
+            "tell me the date"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "ConsultarCitasHoyIntent",
+          "samples": [
+            "appointments to attend",
+            "appointment to attend",
+            "recorded appointment for today",
+            "appointment to attend today",
+            "appointments to attend today",
+            "today\u0027s recorded appointments",
+            "what\u0027s new for today",
+            "appointments to attend",
+            "current appointments",
+            "quotes of today",
+            "quotes of the day",
+            "what is there for today",
+            "today\u0027s scheduled appointments",
+            "appointments for today",
+            "today\u0027s quotes"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "mes",
+              "type": "AMAZON.Month"
+            }
+          ],
+          "name": "ConsultarCitasMesIntent",
+          "samples": [
+            "appointments for the month of {mes}",
+            "appointment to attend the month of {mes} ",
+            "last appointment of the month of {mes}",
+            "appointment for the month of {mes}",
+            "appointments for the month of {mes}",
+            "past appointments in the month of {mes}",
+            "appointments to attend for the month of {mes}",
+            "appointments recorded in the month of {mes}",
+            "dates of the month of {mes}",
+            "appointments to attend for {mes}",
+            "{mes} recorded appointments",
+            "{mes} appointments",
+            "{mes} scheduled appointments"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "day",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "name": "ConsultarCitaDiaIntent",
+          "samples": [
+            "appointment recorded for {day}",
+            "appointment for the day {day}",
+            "date of {day}",
+            "quote of the day {day}",
+            "{day} appointments",
+            "appointments booked for {day}",
+            "appointments for the {day}",
+            "quotes of the day {day}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "ConsultarCitasManaIntent",
+          "samples": [
+            "appointment to attend tomorrow",
+            "registered appointment tomorrow",
+            "appointment for tomorrow",
+            "morning appointment",
+            "booked appointments for tomorrow",
+            "registered appointments tomorrow",
+            "morning appointments",
+            "appointments to attend tomorrow",
+            "appointments for tomorrow"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "ObtenerSiguienteRegistroIntent",
+          "samples": [
+            "next record",
+            "following"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "fechas",
+              "type": "AMAZON.DATE"
+            }
+          ],
+          "name": "ConsultarCitaFechasIntent",
+          "samples": [
+            "appointment to attend {fechas}",
+            "appointments to meet on {fechas}",
+            "appointment of {fechas}",
+            "appointments from {fechas}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "EliminarRegistroIntent",
+          "samples": [
+            "cancel the appointment",
+            "deletes the appointment record",
+            "delete the appointment",
+            "cancel the appointment",
+            "cancel my appointment"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "Confirmacion",
+              "type": "TipoConfirmacion"
+            }
+          ],
+          "name": "ConfirmarEliminacionIntent",
+          "samples": [
+            "{Confirmacion} "
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "usuario",
+              "type": "AMAZON.Person"
+            }
+          ],
+          "name": "RegistrarNombreUsuarioIntent",
+          "samples": [
+            "{usuario}",
+            "user {usuario}",
+            "my username is {usuario}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "diciembre"
+              },
+              "id": "12"
+            },
+            {
+              "name": {
+                "value": "noviembre"
+              },
+              "id": "11"
+            },
+            {
+              "name": {
+                "value": "octubre"
+              },
+              "id": "10"
+            },
+            {
+              "name": {
+                "value": "septiembre"
+              },
+              "id": "09"
+            },
+            {
+              "name": {
+                "value": "agosto"
+              },
+              "id": "08"
+            },
+            {
+              "name": {
+                "value": "julio"
+              },
+              "id": "07"
+            },
+            {
+              "name": {
+                "value": "junio"
+              },
+              "id": "06"
+            },
+            {
+              "name": {
+                "value": "mayo"
+              },
+              "id": "05"
+            },
+            {
+              "name": {
+                "value": "abril"
+              },
+              "id": "04"
+            },
+            {
+              "name": {
+                "value": "marzo"
+              },
+              "id": "03"
+            },
+            {
+              "name": {
+                "value": "febrero"
+              },
+              "id": "02"
+            },
+            {
+              "name": {
+                "value": "enero"
+              },
+              "id": "01"
+            }
+          ],
+          "name": "TipoMes"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "sí"
+              }
+            },
+            {
+              "name": {
+                "value": "no"
+              }
+            }
+          ],
+          "name": "TipoConfirmacion"
+        }
+      ],
+      "invocationName": "cachorro pet"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Si. me has dicho el mes de {month} pero que día?"
+          },
+          {
+            "type": "PlainText",
+            "value": "que día es la cita?"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que día es?"
+          },
+          {
+            "type": "PlainText",
+            "value": "dime en que día del mes es"
+          }
+        ],
+        "id": "Elicit.Slot.1277741201486.1595225682343"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "dime ahora el mes de la cita"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que mes es la cita?"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que mes es?"
+          },
+          {
+            "type": "PlainText",
+            "value": "si, el día {day} .pero en que mes?"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que mes?"
+          }
+        ],
+        "id": "Elicit.Slot.993892280390.1122548925413"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "es de {month} de que año?"
+          },
+          {
+            "type": "PlainText",
+            "value": "si. el {day} de {month} . de que año?"
+          },
+          {
+            "type": "PlainText",
+            "value": "ahora dime el año de la cita"
+          },
+          {
+            "type": "PlainText",
+            "value": "en que año  es la cita?"
+          }
+        ],
+        "id": "Elicit.Slot.900117369832.308617094023"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Dime un dia entre uno y treinta y uno"
+          }
+        ],
+        "id": "Slot.Validation.262050529049.586611985183.450613564301"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Dime un dia entre uno y treinta y uno"
+          }
+        ],
+        "id": "Slot.Validation.262050529049.586611985183.1332136261127"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "dime un mes válido por favor"
+          }
+        ],
+        "id": "Slot.Validation.262050529049.1027837100192.467994524013"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "No creo que quieras agendar una cita en el año anterior. Inténtalo otra vez"
+          }
+        ],
+        "id": "Slot.Validation.262050529049.314293785308.1430149976043"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "No creo que quieras agendar una cita para el otro año . Inténtalo otra vez"
+          }
+        ],
+        "id": "Slot.Validation.262050529049.314293785308.1554160081224"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "por favor dime tu nombre"
+          }
+        ],
+        "id": "Confirm.Intent.65126083353"
+      }
+    ]
+  }
+}
